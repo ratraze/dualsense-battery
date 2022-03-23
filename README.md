@@ -12,7 +12,7 @@ Full/Percent/Disconnected
 
 ### Configuration
 Place the .sh file anywhere you want and put the location in 'exec' field.  
-Don't forget the & at the to not block the execution.
+Don't forget the & at the end.
 
 
 ### Module
