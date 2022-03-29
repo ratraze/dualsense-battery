@@ -7,12 +7,16 @@ iconCharging=""
 if [ -f "/usr/bin/dualsensectl" ]; then
   output=$(dualsensectl battery 2>/dev/null)
 
-  if [[ -n $output ]]; then
+  if [[ $output =~ ^([0-9]{1,3})( {1}[a-z].*)?$ ]]; then
+    charge=${BASH_REMATCH[1]}
+    batteryStatus=${BASH_REMATCH[2]}
+    batteryStatusText=""
 
-    if [[ $output -eq 100 ]]; then
-      echo $iconCharging && exit 0
+    if [[ "$batteryStatus" == " charging" ]]; then
+      batteryStatusText=$iconCharging
     fi
-    printf "%s %s%%" $iconGamepad $output 
+
+    printf "%s %s%% %s" $iconGamepad $charge $batteryStatusText 
 
   else echo $iconFailure 
   fi

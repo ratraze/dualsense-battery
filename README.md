@@ -2,8 +2,6 @@
 
 Tiny shell script which displays the battery status of your dualsense controller in polybar.  
 
-Full/Percent/Disconnected
-
 ![screenshots](screenshots/screens.png)
 
 ### Dependencies
